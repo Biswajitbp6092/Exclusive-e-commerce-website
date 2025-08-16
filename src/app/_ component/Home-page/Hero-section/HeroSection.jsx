@@ -148,7 +148,7 @@ const HeroSection = () => {
                     {cat.subMenu?.length > 0 && (
                       <FaChevronRight
                         className={`transition-transform duration-300 ${
-                          openIndex === idx ? "rotate-90 text-[#DB4444]" : ""
+                          openIndex === idx ? "rotate-190 text-[#DB4444]" : ""
                         }`}
                       />
                     )}
