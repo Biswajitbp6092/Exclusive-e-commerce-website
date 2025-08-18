@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-import './outer.css'
+import "./outer.css";
 
 const HeroSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -128,27 +128,30 @@ const HeroSection = () => {
         />
       </Head>
 
-      <section className="main_container flex gap-6 py-6">
+      <section className="main_container flex flex-col lg:flex-row gap-6 py-6">
         {/* LEFT CATEGORIES MENU */}
         <aside
           ref={menuRef}
-          className="w-1/4 bg-white border-r border-gray-200 relative"
+          className="w-full lg:w-1/4 bg-white border-b-2 lg:border-r-2 border-gray-200 relative"
           aria-label="Product Categories"
         >
           <nav>
-            <ul className="space-y-1 font-poppins text-base font-normal">
+            <ul className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible scrollbar-hide space-x-4 lg:space-x-0 lg:space-y-1 font-poppins text-base font-normal px-4 py-2">
               {categories.map((cat, idx) => (
-                <li key={idx} className="relative">
+                <li
+                  key={idx}
+                  className="relative flex-shrink-0 lg:flex-shrink-auto"
+                >
                   <button
                     aria-expanded={openIndex === idx}
-                    className="flex justify-between items-center w-full py-2 pr-10 cursor-pointer hover:text-[#DB4444] font-medium"
+                    className="flex justify-between items-center lg:w-full py-2 pr-4 lg:pr-10 cursor-pointer hover:text-[#DB4444] font-medium"
                     onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                   >
                     <span>{cat.label}</span>
                     {cat.subMenu?.length > 0 && (
                       <FaChevronRight
                         className={`transition-transform duration-300 ${
-                          openIndex === idx ? "rotate-190 text-[#DB4444]" : ""
+                          openIndex === idx ? "rotate-90 text-[#DB4444]" : ""
                         }`}
                       />
                     )}
@@ -156,12 +159,18 @@ const HeroSection = () => {
 
                   {/* Submenu */}
                   {openIndex === idx && cat.subMenu?.length > 0 && (
-                    <ul className="absolute left-full top-0 ml-2 w-60 bg-white shadow-lg border border-[#DB4444] rounded-md z-20">
+                    <ul
+                      className="absolute lg:left-full left-0 top-full lg:top-0 lg:ml-2 w-max lg:w-60 bg-white shadow-lg border border-[#DB4444] rounded-md z-60"
+                      style={{
+                        right: "auto",
+                        maxWidth: "90vw", // ensures it never overflows screen width
+                      }}
+                    >
                       {cat.subMenu.map((sub, i) => (
                         <li key={i}>
                           <Link
                             href={sub.link}
-                            className="block px-4 py-2 hover:bg-[#DB4444] hover:text-white"
+                            className="block px-4 py-2 hover:bg-[#DB4444] hover:text-white whitespace-nowrap"
                           >
                             {sub.name}
                           </Link>
@@ -176,13 +185,13 @@ const HeroSection = () => {
         </aside>
 
         {/* RIGHT HERO SLIDER */}
-        <div className="w-3/4 hero-slider">
+        <div className="w-full lg:w-3/4 hero-slider">
           <Slider {...settings}>
             {sliderData.map((slide, index) => (
-              <article key={index} className="px-6">
-                <div className="bg-black w-full h-[400px] text-white flex items-center justify-between px-[60px] py-8 rounded-lg">
+              <article key={index} className="lg:px-6">
+                <div className="bg-black w-full h-[400px] text-white flex flex-col-reverse lg:flex-row items-center justify-between px-[20px] lg:px-[60px] py-8 rounded-lg">
                   {/* Left Content */}
-                  <div>
+                  <div className="mb-6 lg:mb-0">
                     <div className="flex items-center gap-[10px] text-base font-poppins">
                       <Image
                         src={slide.brandLogo}
@@ -193,7 +202,7 @@ const HeroSection = () => {
                       />
                       <p>{slide.brandTitle}</p>
                     </div>
-                    <h1 className="text-[48px] my-4 font-inter font-semibold">
+                    <h1 className="text-[32px] lg:text-[48px] my-4 font-inter font-semibold">
                       {slide.title}
                     </h1>
                     <Link
@@ -206,13 +215,13 @@ const HeroSection = () => {
                   </div>
 
                   {/* Right Image */}
-                  <div className="w-1/2">
+                  <div className="w-full">
                     <Image
                       src={slide.image}
                       alt={`Promotional banner for ${slide.brandTitle}`}
-                      width={500}
+                      width={600}
                       height={400}
-                      className="rounded-lg"
+                      className="rounded-lg object-cover"
                       priority={index === 0}
                     />
                   </div>
