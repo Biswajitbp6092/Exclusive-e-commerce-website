@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@layer utilities {
+  .footer-container {
+    @apply py-[80px] grid grid-cols-1 md:grid-cols-5 gap-[87px];
+  }
+  .footer-logo{
+    @apply text-[24px] font-bold mb-6;
+  }
+  .logo-subtitle{
+    @apply font-medium text-[20px] mb-6;
+  }
+  .link{
+    @apply space-y-4 text-base text-[#FAFAFA] font-extralight;
+  }
+  .link-title{
+    @apply text-[20px] font-medium  mb-6;
+  }
+}

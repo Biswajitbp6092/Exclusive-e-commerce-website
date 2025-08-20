@@ -30,14 +30,12 @@ const CustomerSupport = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center font-poppins">
         {features.map((item, idx) => (
           <article key={idx} className="flex flex-col items-center">
-            {/* Icon wrapper (decorative) */}
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gray-300">
               <div className="w-12 h-12 flex items-center justify-center rounded-full bg-black text-white">
                 {item.icon}
               </div>
             </div>
 
-            {/* Title & Description */}
             <h2 className="mt-4 font-semibold text-base sm:text-lg md:text-[20px]">
               {item.title}
             </h2>
