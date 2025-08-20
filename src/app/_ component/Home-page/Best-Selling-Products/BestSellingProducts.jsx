@@ -63,14 +63,16 @@ const BestSellingProducts = () => {
       <header className="flex items-center justify-between">
         <SectionHeader label="This Month" title="Best Selling Products" />
         <Link href="/products">
-          <button className="btn btn-primary font-poppins">View All</button>
+          <button className="hidden lg:block btn btn-primary font-poppins">
+            View All
+          </button>
         </Link>
       </header>
 
       {/* Product Grid */}
       <main
         id="best-selling-products"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+        className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-12"
       >
         {products.map((product) => (
           <article
@@ -151,6 +153,11 @@ const BestSellingProducts = () => {
           </article>
         ))}
       </main>
+      <div className="lg:hidden mt-15 flex justify-center">
+        <Link href="/products">
+          <button className=" btn btn-primary font-poppins">View All</button>
+        </Link>
+      </div>
     </section>
   );
 };

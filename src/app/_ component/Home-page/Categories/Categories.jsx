@@ -54,22 +54,22 @@ const Categories = () => {
       className="main_container top_container"
       aria-labelledby="categories-title"
     >
-      <main className="bg-black p-[70px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+      <main className="bg-black p-4 lg:p-[70px] flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         <div className="flex flex-col space-y-[32px] text-center lg:text-left">
-          <div>
+          <div className="">
             <p
               id="categories-title"
               className="text-[#00FF66] font-poppins font-semibold"
             >
               Categories
             </p>
-            <h2 className="text-[32px] md:text-[48px] font-semibold font-inter text-white mt-[32px]">
+            <h2 className="text-[28px] xl:text-[48px] font-semibold font-inter text-white mt-[32px]">
               Enhance Your <br /> Music Experience
             </h2>
           </div>
 
           <div
-            className="flex gap-6 items-center justify-center lg:justify-start"
+            className="flex flex-wrap gap-6 items-center justify-center lg:justify-start"
             aria-label="Flash sale countdown timer"
           >
             {timeParts.map((t, i) => (

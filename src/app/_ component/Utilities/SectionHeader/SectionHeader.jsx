@@ -13,7 +13,7 @@ const SectionHeader = ({
     <div>
       <div className="flex items-center gap-3">
         <span
-          className="w-6 h-12 block rounded-sm"
+          className="w-4 h-8 lg:w-6 lg:h-12 block rounded-sm"
           style={{ backgroundColor: barColor }}
           aria-hidden="true"
         ></span>
@@ -24,7 +24,7 @@ const SectionHeader = ({
           {label}
         </p>
       </div>
-      <HeadingTag className="text-3xl md:text-4xl font-semibold font-inter text-black mt-7">
+      <HeadingTag className="text-[28px] md:text-[36px] font-semibold font-inter text-black mt-7">
         {title}
       </HeadingTag>
     </div>

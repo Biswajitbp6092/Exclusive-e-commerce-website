@@ -129,10 +129,9 @@ const HeroSection = () => {
       </Head>
 
       <section className="main_container flex flex-col lg:flex-row gap-6 py-6">
-        {/* LEFT CATEGORIES MENU */}
         <aside
           ref={menuRef}
-          className="w-full lg:w-1/4 bg-white border-b-2 lg:border-r-2 border-gray-200 relative"
+          className="w-full lg:w-1/4 bg-white lg:border-r-2 border-gray-200 relative"
           aria-label="Product Categories"
         >
           <nav>
@@ -157,13 +156,12 @@ const HeroSection = () => {
                     )}
                   </button>
 
-                  {/* Submenu */}
                   {openIndex === idx && cat.subMenu?.length > 0 && (
                     <ul
                       className="absolute lg:left-full left-0 top-full lg:top-0 lg:ml-2 w-max lg:w-60 bg-white shadow-lg border border-[#DB4444] rounded-md z-60"
                       style={{
                         right: "auto",
-                        maxWidth: "90vw", // ensures it never overflows screen width
+                        maxWidth: "90vw",
                       }}
                     >
                       {cat.subMenu.map((sub, i) => (
@@ -184,13 +182,11 @@ const HeroSection = () => {
           </nav>
         </aside>
 
-        {/* RIGHT HERO SLIDER */}
         <div className="w-full lg:w-3/4 hero-slider">
           <Slider {...settings}>
             {sliderData.map((slide, index) => (
               <article key={index} className="lg:px-6">
                 <div className="bg-black w-full h-[400px] text-white flex flex-col-reverse lg:flex-row items-center justify-between px-[20px] lg:px-[60px] py-8 rounded-lg">
-                  {/* Left Content */}
                   <div className="mb-6 lg:mb-0">
                     <div className="flex items-center gap-[10px] text-base font-poppins">
                       <Image
@@ -214,7 +210,6 @@ const HeroSection = () => {
                     </Link>
                   </div>
 
-                  {/* Right Image */}
                   <div className="w-full">
                     <Image
                       src={slide.image}

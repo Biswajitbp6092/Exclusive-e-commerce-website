@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @layer utilities {
   .footer-container {
-    @apply py-[80px] grid grid-cols-1 md:grid-cols-5 gap-[87px];
+    @apply py-[80px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 lg:gap-[87px];
   }
   .footer-logo{
     @apply text-[24px] font-bold mb-6;

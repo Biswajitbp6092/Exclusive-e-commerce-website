@@ -87,7 +87,7 @@ const BrowseByCategory = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 4 } },
-      { breakpoint: 768, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 4 } },
       { breakpoint: 480, settings: { slidesToShow: 2 } },
     ],
   };
@@ -99,11 +99,11 @@ const BrowseByCategory = () => {
     >
       <SectionHeader label="Categories" title="Browse By Category" />
 
-      <Slider {...settings} className="mt-[60px]">
+      <Slider {...settings} className="mt-5 lg:mt-[60px]">
         {categories.map((cat, i) => {
           const isActive = i === activeIndex && hoveredIndex === null;
           return (
-            <div key={i} className="px-2">
+            <div key={i} className="px-1 md:px-2">
               <Link
                 href={`/category/${cat.name.toLowerCase()}`}
                 onMouseEnter={() => setHoveredIndex(i)}

@@ -178,7 +178,7 @@ const FlashSales = () => {
       className="main_container top_container"
       aria-labelledby="flash-sales-heading"
     >
-      <header className="flex flex-wrap md:flex-nowrap gap-20">
+      <header className="flex flex-wrap md:flex-nowrap md:justify-between lg:justify-normal gap-5 lg:gap-20">
         <SectionHeader label="Today’s" title="Flash Sales" level={1} />
 
         <div
@@ -208,21 +208,18 @@ const FlashSales = () => {
         </div>
       </header>
 
-      {/* Product Slider */}
-      <Slider {...settings} className="!flex mt-5">
+      <Slider {...settings} className="!flex md:mt-5">
         {products.map((product) => (
           <article
             key={product.id}
             className="font-poppins mt-12 px-[15px] cursor-pointer"
             aria-label={product.name}
           >
-            <div className="relative group w-auto h-[250px] bg-[#f5f5f5] transition rounded-md overflow-hidden">
-              {/* Discount Badge */}
+            <div className="relative group w-auto h-[250px] lg:h-[200px] xl:h-[250px] bg-[#f5f5f5] transition rounded-md overflow-hidden">
               <span className="absolute top-3 left-3 bg-[#DB4444] text-white text-xs px-3 py-2 rounded">
                 {product.discount}
               </span>
 
-              {/* Icons */}
               <div className="absolute top-3 right-3 flex flex-col gap-2">
                 <button
                   className="bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
@@ -245,12 +242,11 @@ const FlashSales = () => {
                   alt={`${product.name} product image`}
                   width={190}
                   height={180}
-                  className="object-contain"
+                  className="object-cover"
                   priority={product.id === 1}
                 />
               </div>
 
-              {/* Add to Cart */}
               <button
                 className="absolute bottom-0 left-0 right-0 bg-black text-white py-3 text-sm md:text-base font-medium font-poppins opacity-0 group-hover:opacity-100 transition cursor-pointer"
                 aria-label={`Add ${product.name} to cart`}
@@ -259,7 +255,6 @@ const FlashSales = () => {
               </button>
             </div>
 
-            {/* Product Info */}
             <div className="mt-[16px]">
               <h2 className="text-sm md:text-base font-medium mb-2">
                 {product.name}
@@ -271,7 +266,6 @@ const FlashSales = () => {
                 </span>
               </div>
 
-              {/* Rating */}
               <div className="flex items-center mt-2">
                 {Array.from({ length: 5 }, (_, i) => (
                   <FaStar
@@ -293,7 +287,6 @@ const FlashSales = () => {
         ))}
       </Slider>
 
-      {/* View All Button */}
       <div className="mt-[70px] flex justify-center">
         <button className="btn btn-primary font-poppins">
           View All Products

@@ -12,11 +12,13 @@ const NewArrival = () => {
   }) => {
     return (
       <article
-        className={`bg-black p-6 flex flex-col justify-end items-start text-left bg-cover bg-center font-poppins ${size}`}
+        className={`bg-black p-6 flex flex-col justify-end items-start text-left bg-cover bg-center font-poppins ${size} sm:h-[300px]`}
         style={{ backgroundImage: `url(${img})` }}
         aria-label={title}
       >
-        <Heading className="text-[24px] font-semibold  text-white">{title}</Heading>
+        <Heading className="text-[24px] font-semibold text-white">
+          {title}
+        </Heading>
         <p className="my-3 text-[14px] text-[#FAFAFA] max-w-[250px]">{desc}</p>
         <a
           href="#"
@@ -29,13 +31,12 @@ const NewArrival = () => {
     );
   };
 
-
   const products = [
     {
       title: "PlayStation 5",
       desc: "Black and White version of the PS5 coming out on sale.",
       img: "https://res.cloudinary.com/dildrjzwy/image/upload/v1755545492/Untitled-1_vg9kce.jpg",
-      size: "min-h-[600px]",
+      size: "h-100 md:min-h-[600px]",
       headingTag: "h2",
     },
     {
@@ -65,6 +66,7 @@ const NewArrival = () => {
       className="main_container top_container py-10"
       aria-labelledby="new-arrival-heading"
     >
+      {/* Section Header */}
       <header className="mb-8">
         <SectionHeader
           label="Featured"
@@ -73,13 +75,17 @@ const NewArrival = () => {
         />
       </header>
 
+      {/* Main Layout */}
       <main className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Left Big Image */}
         <ProductCard {...products[0]} />
 
+        {/* Right Side Content */}
         <div className="grid grid-rows-2 gap-6">
           <ProductCard {...products[1]} />
 
-          <div className="grid grid-cols-2 gap-6">
+          {/* Bottom Two Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             {products.slice(2).map((product, index) => (
               <ProductCard key={index} {...product} />
             ))}
