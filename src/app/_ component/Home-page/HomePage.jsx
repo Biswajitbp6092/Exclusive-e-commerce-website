@@ -11,7 +11,7 @@ import CustomerSupport from '../Utilities/CustomerSupport/CustomerSupport'
 const HomePage = () => {
   return (
     <div>
-        {/* <HeroSection/> */}
+        <HeroSection/>
         <FlashSales/>
         <BrowseByCategory/>
         <BestSellingProducts/>
